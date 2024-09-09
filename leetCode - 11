@@ -1,0 +1,20 @@
+from typing import List
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        w = height
+        o = []
+        h = len(w)-1
+        l = 0
+        
+
+        for i in range (len(w)):
+            if w[h]>w[l]:
+                t = (h-l)*w[l]
+                o.append(t)
+                l+=1
+            else:
+                t = (h-l)*w[h]
+                o.append(t)
+                h-=1
+
+        return max(o)
